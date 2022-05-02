@@ -6,6 +6,7 @@ import { handleError } from '../error-handling/error-helpers';
 export const getAllEntries = async (req: Request, res: Response): Promise<void> => {
   try {
     // pass route (table name) and remove '/' in the end
+    console.log('REQ_PATH, ', req.path, req.path.slice(1, -1));
     const entries = await returnAllEntries(req.path.slice(1, -1));
     res.status(200);
     res.send(entries);
