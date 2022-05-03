@@ -15,7 +15,7 @@ const Profile = () => {
   const fetchUser = async () => {
     const fetchedUser: UserType = await API_SERVICE.findUserBySub(user?.sub!);
     setUserEmail(fetchedUser.email);
-    setUserPicture(fetchedUser.picture_url);
+    setUserPicture(fetchedUser.pictureUrl);
     setUserName(fetchedUser.username);
   };
 
@@ -36,9 +36,7 @@ const Profile = () => {
       <div className="profile">
         <div className="container">
           <h1>Profile</h1>
-          <p>
-            Here you can see and change your profile data like your profile picture, username and more.
-          </p>
+          <p>Here you can see and change your profile data like your profile picture, username and more.</p>
           <div className="profile-data">
             <form>
               <label>E-Mail:</label>

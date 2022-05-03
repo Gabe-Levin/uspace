@@ -19,9 +19,9 @@ function Home() {
   if (!isLoading && user) {
     const userData: CreateUserType = {
       email: user!.email!,
-      email_verified: user!.email_verified!,
+      emailVerified: user!.emailVerified!,
       username: user!.nickname!,
-      picture_url: user!.picture!,
+      pictureUrl: user!.picture!,
       sub: user!.sub!,
     };
 
@@ -39,11 +39,7 @@ function Home() {
   return (
     <>
       <Header setOpened={setOpened} />
-      {isAuthenticated ? (
-        <Spaces opened={opened} setOpened={setOpened} />
-      ) : (
-        <Welcome />
-      )}
+      {isAuthenticated ? <Spaces opened={opened} setOpened={setOpened} /> : <Welcome />}
     </>
   );
 }

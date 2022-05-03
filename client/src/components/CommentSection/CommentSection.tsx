@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import './CommentSection.scss';
-import {
-  CommentType,
-  CreateCommentType,
-  PostType,
-} from '../../interfaces/Interfaces';
+import { CommentType, CreateCommentType, PostType } from '../../interfaces/Interfaces';
 import DOMPurify from 'dompurify';
 import Comment from '../Comment/Comment';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -50,8 +46,8 @@ function CommentSection(props: Incoming) {
     if (props.postId) {
       const commentData = {
         content: saveComment,
-        user_id: await fetchUser(),
-        post_id: props.postId,
+        userId: await fetchUser(),
+        postId: props.postId,
       };
 
       createComment(commentData);
@@ -71,12 +67,10 @@ function CommentSection(props: Incoming) {
     // deep clone all posts
     const clonedPosts = _.cloneDeep(props.posts);
     // find post to add the new comment to
-    const postToAddCommentTo = clonedPosts.find(
-      (post) => post.id === data.post_id
-    );
+    const postToAddCommentTo = clonedPosts.find((post) => post.id === data.postId);
 
     // push comment to right post
-    postToAddCommentTo?.Comment.push(comment);
+    postToAddCommentTo?.comments.push(comment);
     // overwrite posts state with the cloned posts incl. the new comment
     props.setPosts(clonedPosts);
   };
@@ -85,22 +79,11 @@ function CommentSection(props: Incoming) {
     <div className="comments">
       <div className="comments-wrapper">
         {comments &&
-          comments.map((comment) => (
-            <Comment
-              key={comment.id}
-              comment={comment}
-              spaceOwnerId={props.spaceOwnerId}
-            />
-          ))}
+          comments.map((comment) => <Comment key={comment.id} comment={comment} spaceOwnerId={props.spaceOwnerId} />)}
       </div>
       <div className="comments-form">
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={newComment}
-            onChange={handleInput}
-            name="comment"
-          />
+          <input type="text" value={newComment} onChange={handleInput} name="comment" />
           <button type="submit"></button>
         </form>
       </div>

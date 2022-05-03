@@ -2,7 +2,7 @@ export interface UserSpaceRoleType {
   user: {
     username: string;
     email: string;
-    picture_url?: string;
+    pictureUrl?: string;
     id?: number;
   };
 }
@@ -10,22 +10,22 @@ export interface UserSpaceRoleType {
 export default interface SpaceWithCreatorType {
   id: number;
   name: string;
-  created_at: Date;
-  User_Space_Role: UserSpaceRoleType[];
+  createdAt: Date;
+  userSpaceRoles: UserSpaceRoleType[];
 }
 
 export interface CommentType {
   id: number;
   content: string;
-  created_at: string;
-  post_id: number;
-  user_id: number;
+  createdAt: string;
+  postId: number;
+  userId: number;
 }
 
 export interface CreateCommentType {
   content: string;
-  post_id: number;
-  user_id: number;
+  postId: number;
+  userId: number;
 }
 
 export interface PostType {
@@ -33,28 +33,28 @@ export interface PostType {
   content: string;
   tags: string;
   title: string;
-  user_id: number;
-  space_id: number;
-  created_at: Date;
-  Comment: CommentType[];
+  userId: number;
+  spaceId: number;
+  createdAt: Date;
+  comments: CommentType[];
 }
 
 export interface CreatePostType {
   content: string;
   tags: string;
   title: string;
-  user_id: number;
-  space_id: number;
-  created_at: Date;
+  userId: number;
+  spaceId: number;
+  createdAt: Date;
 }
 
 export interface SpaceDataType {
-  Post: PostType[];
-  created_at: Date;
+  posts: PostType[];
+  createdAt: Date;
   description: string;
   id: number;
   name: string;
-  User_Space_Role: UserSpaceRoleType[];
+  userSpaceRoles: UserSpaceRoleType[];
 }
 
 export interface CreateSpaceDataType {
@@ -65,18 +65,18 @@ export interface CreateSpaceDataType {
 export interface UserType {
   id: number;
   email: string;
-  email_verified: boolean;
+  emailVerified: boolean;
   username: string;
-  picture_url: string;
+  pictureUrl: string;
   sub: string;
-  created_at: Date;
+  createdAt: Date;
 }
 
 export interface CreateUserType {
   email: string;
-  email_verified: boolean;
+  emailVerified: boolean;
   username: string;
-  picture_url: string;
+  pictureUrl: string;
   sub: string;
 }
 

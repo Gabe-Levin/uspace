@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import '../CreateEntryForm/CreateEntryForm.scss';
 import { TextInput, Textarea } from '@mantine/core';
 import DOMPurify from 'dompurify';
-import SpaceWithCreatorType, {
-  PrismaError,
-  SpaceDataType,
-} from '../../interfaces/Interfaces';
+import SpaceWithCreatorType, { PrismaError, SpaceDataType } from '../../interfaces/Interfaces';
 import { useAuth0 } from '@auth0/auth0-react';
 import API_SERVICE from '../../Api-Service';
 import _ from 'lodash';
@@ -33,16 +30,10 @@ function CreateSpaceForm(props: Incoming) {
     };
 
     // create new space
-    const newSpace: SpaceDataType | PrismaError = await API_SERVICE.createSpace(
-      spaceData
-    );
-
+    const newSpace: SpaceDataType | PrismaError = await API_SERVICE.createSpace(spaceData);
     // check for unique space name constraint
     if ('code' in newSpace) {
-      console.log(newSpace);
-      setSpaceNameTakenError(
-        'This Space name is already taken, please choose a different one!'
-      );
+      setSpaceNameTakenError('This Space name is already taken, please choose a different one!');
       return;
     }
 
@@ -54,20 +45,18 @@ function CreateSpaceForm(props: Incoming) {
         // create a m-m relationship using the user id, space id and 2 for creator
         await API_SERVICE.createUserSpaceRole(foundUser.id, newSpace.id, 2);
         // add new userSpaceRole array and input new user
-        newSpace.User_Space_Role = [
+        newSpace.userSpaceRoles = [
           {
             user: {
               email: foundUser.email,
               username: foundUser.username,
-              picture_url: foundUser.picture_url,
+              pictureUrl: foundUser.pictureUrl,
             },
           },
         ];
 
         // overwrite posts state with the cloned posts incl. the new comment
-        props.setAllSpaces(
-          cloneSpacesAndAddNewSpace(props.allSpaces, newSpace)
-        );
+        props.setAllSpaces(cloneSpacesAndAddNewSpace(props.allSpaces, newSpace));
       }
       // direct to new space
       navigate(`/spaces/${newSpace.id}`);
@@ -78,10 +67,7 @@ function CreateSpaceForm(props: Incoming) {
   };
 
   // deep clone given space and add new space
-  const cloneSpacesAndAddNewSpace = (
-    spaces: SpaceWithCreatorType[],
-    newSpace: SpaceDataType
-  ) => {
+  const cloneSpacesAndAddNewSpace = (spaces: SpaceWithCreatorType[], newSpace: SpaceDataType) => {
     // deep clone given spaces
     const clonedSpaces = _.cloneDeep(spaces);
     // push space to cloned spaces
@@ -100,11 +86,7 @@ function CreateSpaceForm(props: Incoming) {
           onChange={(event) => setName(event.currentTarget.value)}
         />
         <label>Description:</label>
-        <Textarea
-          required
-          value={description}
-          onChange={(event) => setDescription(event.currentTarget.value)}
-        />
+        <Textarea required value={description} onChange={(event) => setDescription(event.currentTarget.value)} />
         <button className="create-entry-form-submit">Create</button>
       </form>
     </div>

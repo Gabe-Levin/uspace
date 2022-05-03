@@ -24,9 +24,7 @@ function SpacesList(props: Incoming) {
     // deep clone spaces
     const clonedSpaces = _.cloneDeep(props.allSpaces);
     // find index of deleted space in state
-    const indexOfDeletedSpace = clonedSpaces.findIndex(
-      (arrSpace) => arrSpace.id === id
-    );
+    const indexOfDeletedSpace = clonedSpaces.findIndex((arrSpace) => arrSpace.id === id);
     // delete space from state
     clonedSpaces.splice(indexOfDeletedSpace, 1);
     // set spaces without deleted one to state
@@ -34,7 +32,7 @@ function SpacesList(props: Incoming) {
   };
 
   const spaceItem = props.spaces.map((space) => {
-    const { username, picture_url } = space.User_Space_Role[0].user;
+    const { username, pictureUrl } = space.userSpaceRoles[0].user;
     const { name } = space;
     const { id } = space;
     let isOwner = false;
@@ -50,17 +48,13 @@ function SpacesList(props: Incoming) {
           <Menu placement="center" position="top">
             <Menu.Label>Settings</Menu.Label>
             <Menu.Item icon={<Edit size={14} />}>Edit this Space</Menu.Item>
-            <Menu.Item
-              color="red"
-              icon={<Trash size={14} />}
-              onClick={() => deleteSpace(id)}
-            >
+            <Menu.Item color="red" icon={<Trash size={14} />} onClick={() => deleteSpace(id)}>
               Delete this Space
             </Menu.Item>
           </Menu>
         )}
         <Link to={`/spaces/${id}`} className="spaces-item">
-          <img src={picture_url} alt="Space Icon" />
+          <img src={pictureUrl} alt="Space Icon" />
           <div className="spaces-item-name">{name}</div>
           <div className="spaces-item-creator">{username}</div>
         </Link>
