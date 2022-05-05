@@ -85,3 +85,11 @@ export interface PrismaError {
   clientVersion: string;
   meta: object;
 }
+
+export interface IncomingEntry {
+  post: PostType;
+  setClickedPost: Function;
+  index: number;
+  activePostId: number;
+  setActivePostId: Function;
+}

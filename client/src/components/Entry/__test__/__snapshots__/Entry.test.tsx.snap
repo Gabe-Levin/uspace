@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Entry component Matches snapshot 1`] = `
+<div
+  className="entry active"
+  onClick={[Function]}
+>
+  <div
+    className="entry-left"
+  >
+    <div
+      className="entry-left-date"
+    >
+      Invalid Date
+    </div>
+  </div>
+  <div
+    className="entry-right"
+  >
+    <div
+      className="entry-right-title"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "testTitle",
+        }
+      }
+    />
+    <div
+      className="entry-right-text"
+    >
+      testContent...
+    </div>
+  </div>
+</div>
+`;
