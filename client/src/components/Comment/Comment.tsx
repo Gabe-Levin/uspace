@@ -3,7 +3,7 @@ import './Comment.scss';
 import { CommentType, UserType } from '../../interfaces/Interfaces';
 import DOMPurify from 'dompurify';
 
-interface Incoming {
+export interface Incoming {
   comment: CommentType;
   spaceOwnerId?: number;
 }
@@ -12,8 +12,7 @@ function Comment(props: Incoming) {
   const { comment } = props;
   const [user, setUser] = useState<UserType>();
   const spaceOwnerId = props.spaceOwnerId || 0;
-  const URL = `${process.env.REACT_APP_API}/users/${comment.userId}`;
-
+  const URL = `${process.env.REACT_APP_API}/Users/${comment.userId}`;
   const date = new Date(comment.createdAt).toLocaleTimeString('en-EN', {
     // weekday: 'short',
     year: '2-digit',
@@ -32,7 +31,6 @@ function Comment(props: Incoming) {
   useEffect(() => {
     fetchUser();
   }, [fetchUser]);
-
   return (
     <div className={spaceOwnerId === comment.userId ? 'comment right' : 'comment'}>
       <div className="comment-avatar">
