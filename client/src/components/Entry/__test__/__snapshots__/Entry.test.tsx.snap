@@ -30,6 +30,16 @@ exports[`Testing Entry component Matches snapshot 1`] = `
     >
       testContent...
     </div>
+    <div
+      className="entry-right-tags"
+    >
+      <div
+        className="comment-tag"
+      >
+        1
+         comments
+      </div>
+    </div>
   </div>
 </div>
 `;

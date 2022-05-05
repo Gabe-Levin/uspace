@@ -1,9 +1,13 @@
 import { cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import { IncomingEntry, PostType } from '../../../interfaces/Interfaces';
+import { CommentType, IncomingEntry, PostType } from '../../../interfaces/Interfaces';
 import Entry from '../Entry';
 
 describe('Testing Entry component', () => {
+
+  const MOCK_COMMENTS: CommentType={
+    content: "Test Comment"
+  } as CommentType
 
   const MOCK_POST: PostType={
     id: 1,
@@ -12,6 +16,7 @@ describe('Testing Entry component', () => {
     title: "testTitle",
     userId: 1,
     spaceId: 1,
+    comments: [MOCK_COMMENTS]
   } as PostType
 
   const MOCK_PROPS: IncomingEntry={
