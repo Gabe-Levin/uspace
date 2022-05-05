@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Welcome component Matches snapshot 1`] = `
+<main
+  className="welcome"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="welcome-heading"
+    >
+      <div
+        className="welcome-heading-left"
+      >
+        <h1>
+          Share updates, notes, or memories and stay connected to the world!
+        </h1>
+        <p>
+          Sign up now and create your first space or join others and catch up on what they are posting!
+        </p>
+        <button
+          onClick={[Function]}
+        >
+          Log In
+        </button>
+        <button
+          className=""
+          onClick={[Function]}
+        >
+          Sign Up
+        </button>
+      </div>
+      <div
+        className="welcome-heading-right"
+      >
+        <img
+          alt="uspace Spaces"
+          src="placeholder-notes.png"
+        />
+      </div>
+    </div>
+    <div
+      className="welcome-content"
+    >
+      <div
+        className="welcome-content-wrapper"
+      >
+        <div
+          className="welcome-content-info-left"
+        >
+          <img
+            alt="uspace Notes"
+            src="placeholder-spaces.png"
+          />
+        </div>
+        <div
+          className="welcome-content-info-right"
+        >
+          <div
+            className="welcome-content-spaces"
+          >
+            <div
+              className="title-left"
+            >
+              What are
+            </div>
+            <div
+              className="title-right"
+            >
+              Spaces?
+            </div>
+          </div>
+          <div
+            className="welcome-content-info"
+          >
+            Spaces are your creative outlet! Your place to share what you want the world to see! You can share updates on your latest trip, save notes for yourself and your colleagues, present what you cooked that day, and more. It's up to your imagination. Create your space now and share it with your friends and family!
+            <br />
+            <br />
+            You're a company and want to share the newest development of your product or communicate changes? uspace helps you convey your message to your customers.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+`;

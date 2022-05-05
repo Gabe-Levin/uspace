@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing CreateSpaceFrom component snapshot matches, component renders correctly 1`] = `
+<div
+  className="create-entry-form"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="spaceName"
+    >
+      Space name:
+    </label>
+    <div
+      className="mantine-TextInput-root mantine-18udhi"
+    >
+      <div
+        className="mantine-TextInput-wrapper mantine-12sbrde"
+      >
+        <input
+          aria-invalid={false}
+          className="mantine-TextInput-defaultVariant mantine-TextInput-input mantine-us7vc8"
+          id="spaceName"
+          name="spaceName"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <label
+      htmlFor="spaceDescription"
+    >
+      Description:
+    </label>
+    <div
+      className="mantine-Textarea-root mantine-18udhi"
+    >
+      <div
+        className="mantine-Textarea-wrapper mantine-12sbrde"
+      >
+        <textarea
+          aria-invalid={false}
+          className="mantine-Textarea-defaultVariant mantine-Textarea-input mantine-wcnwz0"
+          id="spaceDescription"
+          name="spaceDescription"
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </div>
+    </div>
+    <button
+      className="create-entry-form-submit"
+    >
+      Create
+    </button>
+  </form>
+</div>
+`;

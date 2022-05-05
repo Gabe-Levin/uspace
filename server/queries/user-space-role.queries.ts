@@ -7,7 +7,10 @@ import { prisma } from '../prisma/prisma-client';
 export const createUserSpaceRoleQuery = async (
   newUserSpaceRoleDetails: IIncomingUserSpaceRole
 ): Promise<IUserSpaceRole> => {
+  console.log('newUserSpaceRoleDetails', newUserSpaceRoleDetails);
   const userSpaceRoleData = { user_id: newUserSpaceRoleDetails.userId, role_id: newUserSpaceRoleDetails.roleId, space_id: newUserSpaceRoleDetails.spaceId };
+  console.log('userSpaceRoleData', userSpaceRoleData);
+
   const dbUserSpaceRole = await prisma.user_Space_Role.create({
     data: userSpaceRoleData
   });

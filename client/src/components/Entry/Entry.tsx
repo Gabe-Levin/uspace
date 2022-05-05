@@ -1,16 +1,8 @@
 import './Entry.scss';
-import { PostType } from '../../interfaces/Interfaces';
+import { IncomingEntry } from '../../interfaces/Interfaces';
 import DOMPurify from 'dompurify';
 
-interface Incoming {
-  post: PostType;
-  setClickedPost: Function;
-  index: number;
-  activePostId: number;
-  setActivePostId: Function;
-}
-
-function Entry(props: Incoming) {
+function Entry(props: IncomingEntry) {
   const { post } = props;
 
   const changeDetails = () => {

@@ -28,9 +28,9 @@ export const getSpacesAndCreators = async (req: Request, res: Response): Promise
 // delete single User_Space_role by space_id
 export const deleteUserSpaceRole = async (req: Request, res: Response): Promise<void> => {
   try {
-    const deletedRow = await deleteSingleUserSpaceRole(req.params.spaceId);
+    const deletedRowCount = await deleteSingleUserSpaceRole(req.params.spaceId);
     res.status(202);
-    res.send(deletedRow);
+    res.send({ count: deletedRowCount });
   } catch (error) {
     res.status(500);
     res.send(handleError(error));

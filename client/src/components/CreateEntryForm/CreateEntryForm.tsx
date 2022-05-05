@@ -85,10 +85,11 @@ function CreateEntryForm(props: Incoming) {
   return (
     <div className="create-entry-form">
       <form onSubmit={handleSubmit}>
-        <label>Title:</label>
-        <TextInput required value={title} onChange={(event) => setTitle(event.currentTarget.value)} />
-        <label>Text:</label>
+        <label htmlFor='title'>Title:</label>
+        <TextInput id='title' required value={title} onChange={(event) => setTitle(event.currentTarget.value)} />
+        <label htmlFor='text'>Text:</label>
         <RichTextEditor
+          id='text'
           value={richTextValue}
           onChange={setRichTextValue}
           onImageUpload={handleImageUpload}

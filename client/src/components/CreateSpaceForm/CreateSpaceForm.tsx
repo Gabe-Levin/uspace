@@ -78,15 +78,17 @@ function CreateSpaceForm(props: Incoming) {
   return (
     <div className="create-entry-form">
       <form onSubmit={handleSubmit}>
-        <label>Space name:</label>
+        <label htmlFor={'spaceName'} >Space name:</label>
         <TextInput
           required
+          name={'spaceName'}
+          id={'spaceName'}
           value={name}
           error={spaceNameTakenError && spaceNameTakenError}
           onChange={(event) => setName(event.currentTarget.value)}
         />
-        <label>Description:</label>
-        <Textarea required value={description} onChange={(event) => setDescription(event.currentTarget.value)} />
+        <label htmlFor={'spaceDescription'}>Description:</label>
+        <Textarea name={'spaceDescription'} id={'spaceDescription'} required value={description} onChange={(event) => setDescription(event.currentTarget.value)} />
         <button className="create-entry-form-submit">Create</button>
       </form>
     </div>
